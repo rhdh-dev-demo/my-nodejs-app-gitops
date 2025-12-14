@@ -59,10 +59,6 @@ spec:
           value: 'false'
         - name: DEST_TLS_VERIFY
           value: 'false'
-        - name: VERBOSE
-          value: 'false'
-        - name: ARGS
-          value: ''
       taskRef:
         params:
           - name: kind

@@ -41,12 +41,6 @@ spec:
     - name: IMAGE_DIGEST
       description: Image SHA256 digest (from build task)
       value: $(tasks.build-and-push.results.IMAGE_DIGEST)
-    - name: IMAGE_REF
-      description: Full image reference with tag
-      value: $(params.IMAGE):$(params.IMAGE_TAG)
-    - name: IMAGE_REF_DIGEST
-      description: Full image reference with digest (for OpenShift cross-namespace)
-      value: $(params.IMAGE)@$(tasks.build-and-push.results.IMAGE_DIGEST)
   tasks:
     - name: fetch-repository
       params:
