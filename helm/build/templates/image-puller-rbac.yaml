@@ -18,7 +18,7 @@ metadata:
     app.kubernetes.io/component: rbac
 subjects:
   - kind: ServiceAccount
-    name: {{ .Values.app.name }}
+    name: {{ .Values.app.name }}-staging
     namespace: {{ .Values.app.name }}-staging
   - kind: ServiceAccount
     name: default
@@ -40,7 +40,7 @@ metadata:
     app.kubernetes.io/component: rbac
 subjects:
   - kind: ServiceAccount
-    name: {{ .Values.app.name }}
+    name: {{ .Values.app.name }}-prod
     namespace: {{ .Values.app.name }}-prod
   - kind: ServiceAccount
     name: default
