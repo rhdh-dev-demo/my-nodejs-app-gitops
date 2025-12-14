@@ -31,18 +31,13 @@ spec:
 
   # Pipeline results - using skopeo-copy task outputs
   results:
-    - name: IMAGE_TAG
-      description: Image tag used for promotion
-      value: $(params.image-tag)
+
     - name: SOURCE_DIGEST
       description: Source image SHA256 digest
       value: $(tasks.skopeo-copy.results.SOURCE_DIGEST)
     - name: DESTINATION_DIGEST
       description: Destination image SHA256 digest
       value: $(tasks.skopeo-copy.results.DESTINATION_DIGEST)
-    - name: DESTINATION_IMAGE
-      description: Full destination image reference
-      value: $(params.DESTINATION_IMAGE_URL)
 
   workspaces:
     - name: image-url

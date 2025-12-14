@@ -35,12 +35,10 @@ spec:
     - name: IMAGE_URL
       description: Full image URL (from build task)
       value: $(tasks.build-and-push.results.IMAGE_URL)
-    - name: IMAGE_TAG
-      description: Image tag used for this build
-      value: $(params.IMAGE_TAG)
     - name: IMAGE_DIGEST
       description: Image SHA256 digest (from build task)
       value: $(tasks.build-and-push.results.IMAGE_DIGEST)
+
   tasks:
     - name: fetch-repository
       params:
