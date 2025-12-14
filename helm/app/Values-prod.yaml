@@ -3,7 +3,8 @@
 
 # Image tag - updated by Tekton promote pipeline
 image:
-  tag: latest
+  tag: "v1.0.0"
+  digest: "sha256:3da917f497ee58ae8cebb2c29202ca052a1466c0ddf8cdeb3f79212ff1e61e47"
 
 # Environment variables - override for production
 env:
