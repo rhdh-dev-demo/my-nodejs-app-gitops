@@ -18,6 +18,9 @@ metadata:
     app.kubernetes.io/component: rbac
 subjects:
   - kind: ServiceAccount
+    name: {{ .Values.app.name }}
+    namespace: {{ .Values.app.name }}-staging
+  - kind: ServiceAccount
     name: default
     namespace: {{ .Values.app.name }}-staging
 roleRef:
@@ -36,6 +39,9 @@ metadata:
     app.kubernetes.io/name: {{ .Values.app.name }}
     app.kubernetes.io/component: rbac
 subjects:
+  - kind: ServiceAccount
+    name: {{ .Values.app.name }}
+    namespace: {{ .Values.app.name }}-prod
   - kind: ServiceAccount
     name: default
     namespace: {{ .Values.app.name }}-prod
