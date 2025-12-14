@@ -8,7 +8,8 @@ image:
   organization: my-nodejs-app-dev
   name: my-nodejs-app
   # Initial tag - will be updated by pipeline with git SHA
-  tag: "62b3f7f6147bc3337c1cb83c3bfad9a756da9d25"
+  tag: "2928a2f69b9997845ba7fe3265bbe12857a48445"
+  digest: "sha256:cb5d3df81474eeaea5a616e87c0af2e8b3488de86379767fc7f03c0093561edc"
   # Digest - populated by pipeline for OpenShift cross-namespace pulls
   # When set, deployment uses image@digest format instead of image:tag
   # digest: "sha256:..."
