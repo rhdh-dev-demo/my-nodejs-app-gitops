@@ -16,15 +16,14 @@ metadata:
   labels:
     app.kubernetes.io/name: {{ .Values.app.name }}
     app.kubernetes.io/component: rbac
-spec:
-  subjects:
-    - kind: ServiceAccount
-      name: default
-      namespace: {{ .Values.app.name }}-staging
-  roleRef:
-    kind: ClusterRole
-    name: system:image-puller
-    apiGroup: rbac.authorization.k8s.io
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: {{ .Values.app.name }}-staging
+roleRef:
+  kind: ClusterRole
+  name: system:image-puller
+  apiGroup: rbac.authorization.k8s.io
 
 ---
 # Grant prod namespace permission to pull images from dev
@@ -36,15 +35,14 @@ metadata:
   labels:
     app.kubernetes.io/name: {{ .Values.app.name }}
     app.kubernetes.io/component: rbac
-spec:
-  subjects:
-    - kind: ServiceAccount
-      name: default
-      namespace: {{ .Values.app.name }}-prod
-  roleRef:
-    kind: ClusterRole
-    name: system:image-puller
-    apiGroup: rbac.authorization.k8s.io
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: {{ .Values.app.name }}-prod
+roleRef:
+  kind: ClusterRole
+  name: system:image-puller
+  apiGroup: rbac.authorization.k8s.io
 
 {{- end }}
 
