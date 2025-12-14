@@ -1,3 +1,4 @@
+---
 apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
@@ -89,31 +90,6 @@ spec:
       workspaces:
         - name: source
           workspace: shared-data
-    # Tag image as 'latest' for convenience (runs in parallel with update-and-sync)
-    # - name: tag-as-latest
-    #   params:
-    #     - name: SOURCE_IMAGE_URL
-    #       value: 'docker://$(params.IMAGE):$(params.IMAGE_TAG)'
-    #     - name: DESTINATION_IMAGE_URL
-    #       value: 'docker://$(params.IMAGE):latest'
-    #     - name: SRC_TLS_VERIFY
-    #       value: 'false'
-    #     - name: DEST_TLS_VERIFY
-    #       value: 'false'
-    #   runAfter:
-    #     - build-and-push
-    #   taskRef:
-    #     params:
-    #       - name: kind
-    #         value: task
-    #       - name: name
-    #         value: skopeo-copy
-    #       - name: namespace
-    #         value: openshift-pipelines
-    #     resolver: cluster
-    #   workspaces:
-    #     - name: images_url
-    #       workspace: shared-data
     # Update GitOps and sync ArgoCD (runs in parallel with tag-as-latest)
     - name: update-and-sync
       params:
